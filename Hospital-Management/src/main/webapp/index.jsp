@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page import="java.sql.Connection" %>
+	<%@ page import="com.db.DBConnect" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +31,10 @@
 </head>
 <body>
 	<%@ include file="component/navbar.jsp"%>
+
+	<%-- <%Connection conn=DBConnect.getConn(); 
+	out.println(conn);
+	%> --%>
 
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-bs-ride="carousel">
