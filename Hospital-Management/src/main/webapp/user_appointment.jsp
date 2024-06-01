@@ -15,7 +15,7 @@
 <%@ include file="component/all_css.jsp"%>
 <style type="text/css">
 .backImg {
-	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
 		url("img/hospital.jpg");
 	height: 20vh;
 	width: 100%;
