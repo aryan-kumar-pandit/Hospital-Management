@@ -33,7 +33,7 @@ public class UserLogin extends HttpServlet {
 			}
 			else 
 			{
-				session.setAttribute("errorMsg", "invalid admin");
+				session.setAttribute("errorMsg", "invalid user");
 				resp.sendRedirect("user_login.jsp");
 			}
 			
