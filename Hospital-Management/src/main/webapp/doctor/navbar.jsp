@@ -28,7 +28,7 @@
 						aria-expanded="false">
 						<i class="fa-regular fa-circle-user"></i> ${doctObj.fullName }</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="doclogout">Edit
+						<li><a class="dropdown-item" href="edit_profile.jsp">Edit
 								Profile</a></li>
 						<li><a class="dropdown-item" href="../doclogout">LogOut</a></li>
 					</ul>
