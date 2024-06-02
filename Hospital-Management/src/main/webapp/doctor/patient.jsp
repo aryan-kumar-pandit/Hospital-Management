@@ -26,8 +26,7 @@
 			<div class="col-md-12">
 				<div class="card paint-card">
 					<div class="card-body">
-						<p class="text-center fs-4 fw-bold text">Patient
-							Details</p>
+						<p class="text-center fs-4 fw-bold text">Patient Details</p>
 						<c:if test="${not empty sucMsg }">
 							<p class="text-center text-success fs-5">${sucMsg }</p>
 							<c:remove var="sucMsg" scope="session" />
@@ -68,8 +67,21 @@
 									<td><%=ap.getPhno()%></td>
 									<td><%=ap.getDiseases()%></td>
 									<td><%=ap.getStatus()%></td>
-									<td><a href="#" class="btn btn-sm btn-warning">Comment</a>
+									<td>
+									<%
+									if("Pending".equals(ap.getStatus()))
+									{%>
+										<a href="comment.jsp?id=<%=ap.getId()%>"
+										class="btn btn-sm btn-success">Comment</a>
+									<%}
+									else {%>
+										<a href="#"
+										class="btn btn-sm btn-success disabled">Comment</a>
+									<%}
+									%>
+									
 									</td>
+									
 								</tr>
 
 								<%
