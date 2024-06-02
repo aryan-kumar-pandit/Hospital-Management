@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.dao.SpecialistDao"%>
+<%@page import="com.dao.AppointmentDao"%>
+<%@page import="com.dao.UserDao"%>
+<%@page import="com.db.DBConnect"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,13 +35,20 @@
 			<c:remove var="errorMsg" scope="session" />
 		</c:if>
 
+		<%
+		AppointmentDao dao=new AppointmentDao(DBConnect.getConn());
+		DoctorDao dao1=new DoctorDao(DBConnect.getConn());
+		SpecialistDao dao2=new SpecialistDao(DBConnect.getConn());
+		UserDao dao3=new UserDao(DBConnect.getConn());
+		%>
+
 		<div class="row">
 			<div class="col-md-4 ">
 				<div class="card paint-card">
 					<div class="card-body text-center text-success">
 						<i class="fas fa-user-md fa-3x"></i><br>
 						<p class="fs-4 text-center">
-							Doctor<br>5
+							Doctor<br><%=dao1.countDoctor() %>
 						</p>
 					</div>
 				</div>
@@ -46,7 +58,7 @@
 					<div class="card-body text-center text-success">
 						<i class="fas fa-user-circle fa-3x"></i><br>
 						<p class="fs-4 text-center">
-							User<br>43
+							User<br><%=dao3.countUser() %>
 						</p>
 					</div>
 				</div>
@@ -56,7 +68,7 @@
 					<div class="card-body text-center text-success">
 						<i class="fa-regular fa-calendar-check fa-3x"></i><br>
 						<p class="fs-4 text-center">
-							Total Appointment<br>400
+							Total Appointment<br><%=dao.countAppointment() %>
 						</p>
 					</div>
 				</div>
@@ -67,7 +79,7 @@
 					<div class="card-body text-center text-success">
 						<i class="fa-regular fa-calendar-check fa-3x"></i><br>
 						<p class="fs-4 text-center">
-							Specialist<br>34
+							Specialist<br><%=dao2.countSpecialist() %>
 						</p>
 					</div>
 				</div>
@@ -94,7 +106,7 @@
 								name="specName" class="form-control">
 						</div>
 						<div class="text-center mt-3">
-						<button type="submit" class="btn btn-primary">ADD</button>
+							<button type="submit" class="btn btn-primary">ADD</button>
 						</div>
 					</form>
 
@@ -102,7 +114,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Close</button>
-					
+
 				</div>
 			</div>
 		</div>

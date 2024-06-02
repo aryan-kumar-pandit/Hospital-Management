@@ -65,5 +65,25 @@ public class UserDao {
 		return u;
 	}
 	
+	public int countUser()
+	{
+		int i=0;
+		
+	try {
+		String sql="select * from user_dtls";
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next())
+		{
+			i++;
+		}
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return i;
+		
+	}
 
 }
