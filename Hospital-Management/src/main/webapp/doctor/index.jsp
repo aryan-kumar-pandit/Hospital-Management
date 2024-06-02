@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.db.DBConnect"%>
+<%@page import="com.entity.Doctor"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
@@ -19,6 +22,10 @@
 		<c:redirect url="../doctor_login.jsp"></c:redirect>
 	</c:if>
 	<%@include file="navbar.jsp"%>
+	<%
+	Doctor d = (Doctor) session.getAttribute("doctObj");
+	DoctorDao dao = new DoctorDao(DBConnect.getConn());
+	%>
 	<div class="container p-5">
 		<p class="text-center fs-3">Doctor Dashboard</p>
 		<div class="row">
@@ -27,7 +34,7 @@
 					<div class="card-body text-center text-primary">
 						<i class="fas fa-user-md fa-3x"></i><br>
 						<p class="fs-4 text-center">
-							Doctor<br>5
+							Doctor<br><%=dao.countDoctor()%>
 						</p>
 					</div>
 				</div>
@@ -37,7 +44,7 @@
 					<div class="card-body text-center text-primary">
 						<i class="fas fa-user-md fa-3x"></i><br>
 						<p class="fs-4 text-center">
-							Total Appointment<br>5
+							Total Appointment<br><%=dao.countAppointmentByDoctorId(d.getId())%>
 						</p>
 					</div>
 				</div>
